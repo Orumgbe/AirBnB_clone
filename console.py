@@ -145,4 +145,5 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
+    """Command interpreter execute"""
     HBNBCommand().cmdloop()
