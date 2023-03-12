@@ -57,9 +57,11 @@ class HBNBCommand(cmd.Cmd):
 
             key = "{}.{}".format(name, id)
             if name not in HBNBCommand.class_list:
-                print("** class doesn't exit **")
+                print("** class doesn't exist **")
+                return
             elif key not in storage.all().keys():
                 print("** no instance found **")
+                return
             else:
                 print(storage.all()[key])
 
@@ -78,9 +80,11 @@ class HBNBCommand(cmd.Cmd):
 
             key = "{}.{}".format(name, id)
             if name not in HBNBCommand.class_list:
-                print("** class doesn't exit **")
+                print("** class doesn't exist **")
+                return
             elif key not in storage.all().keys():
                 print("** no instance found **")
+                return
             else:
                 del(storage.all()[key])
                 storage.save()
@@ -105,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
                     instances.append(str(instance))
             print(instances)
         else:
-            print("** class doesn't exit **")
+            print("** class doesn't exist **")
 
     def do_update(self, line):
         """Updates instance by adding or updating attribute
@@ -130,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
 
             key = "{}.{}".format(args[0], args[1])
             if args[0] not in HBNBCommand.class_list:
-                print("** class doesn't exit **")
+                print("** class doesn't exist **")
             elif key not in storage.all().keys():
                 print("** no instance found **")
             else:
