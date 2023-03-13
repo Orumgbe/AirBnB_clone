@@ -36,7 +36,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print("** class name missing **")
         elif line not in HBNBCommand.class_list:
-            print("** class doesn't exit **")
+            print("** class doesn't exist **")
         else:
             temp = eval(line)()
             temp.save()
