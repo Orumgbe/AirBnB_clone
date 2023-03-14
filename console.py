@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             try:
                 args = line.split(' ')
-             except ValueError:
+            except ValueError:
                 print("** instance id missing **")
                 return
             try:
