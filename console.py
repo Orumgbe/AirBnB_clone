@@ -136,7 +136,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
                 return
 
-           key = "{}.{}".format(args[0], args[1])
+            key = "{}.{}".format(args[0], args[1])
             if args[0] not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
             elif key not in storage.all().keys():
