@@ -120,10 +120,16 @@ class HBNBCommand(cmd.Cmd):
         else:
             try:
                 args = line.split(' ')
-                if not args[2]:
+                try:
+                    if args[2]:
+                        pass
+                except IndexError:
                     print("** attribute name missing **")
                     return
-                elif not args[3]:
+                try:
+                    if args[3]:
+                        pass
+                except IndexError:
                     print("** value missing **")
                     return
             except ValueError:
