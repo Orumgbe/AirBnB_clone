@@ -22,7 +22,7 @@ class FileStorage:
         temp.update(FileStorage.__objects)
         for k, v in temp.items():
             temp[k] = v.to_dict()
-        with open(FileStorage.__file_path, 'w', encoding='utf-8') as f:
+        with open(self.__file_path, 'w', encoding='utf-8') as f:
             json.dump(temp, f)
 
     def reload(self):
