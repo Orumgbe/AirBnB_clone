@@ -118,6 +118,7 @@ class HBNBCommand(cmd.Cmd):
         if not line:
             print("** class name missing **")
         else:
+            same_line = line
             try:
                 args = line.split(' ')
             except ValueError:
@@ -131,7 +132,7 @@ class HBNBCommand(cmd.Cmd):
                 return
             try:
                 if args[3]:
-                    pass
+                    attr_val = same_line.split('"')[1]
             except IndexError:
                 print("** value missing **")
                 return
@@ -142,9 +143,7 @@ class HBNBCommand(cmd.Cmd):
             elif key not in storage.all().keys():
                 print("** no instance found **")
             else:
-                args[3] = args[3].strip("'")
-                args[3] = args[3].strip('"')
-                setattr(storage.all()[key], args[2], args[3])
+                setattr(storage.all()[key], args[2], attr_val)
                 storage.all()[key].save()
 
 
