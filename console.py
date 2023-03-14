@@ -123,7 +123,6 @@ class HBNBCommand(cmd.Cmd):
              except ValueError:
                 print("** instance id missing **")
                 return
-
             try:
                 if args[2]:
                     pass
