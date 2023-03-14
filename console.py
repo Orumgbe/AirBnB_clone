@@ -120,23 +120,24 @@ class HBNBCommand(cmd.Cmd):
         else:
             try:
                 args = line.split(' ')
-                try:
-                    if args[2]:
-                        pass
-                except IndexError:
-                    print("** attribute name missing **")
-                    return
-                try:
-                    if args[3]:
-                        pass
-                except IndexError:
-                    print("** value missing **")
-                    return
-            except ValueError:
+             except ValueError:
                 print("** instance id missing **")
                 return
 
-            key = "{}.{}".format(args[0], args[1])
+            try:
+                if args[2]:
+                    pass
+            except IndexError:
+                print("** attribute name missing **")
+                return
+            try:
+                if args[3]:
+                    pass
+            except IndexError:
+                print("** value missing **")
+                return
+
+           key = "{}.{}".format(args[0], args[1])
             if args[0] not in HBNBCommand.class_list:
                 print("** class doesn't exist **")
             elif key not in storage.all().keys():
