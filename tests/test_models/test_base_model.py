@@ -112,15 +112,12 @@ class TestBaseModel(unittest.TestCase):
         Test for the save method of the BaseModel
         class
         """
-        self.user1.save()
-        date_time = datetime.datetime.now()
-        self.assertEqual(self.user1.updated_at.year, date_time.year)
-        self.assertEqual(self.user1.updated_at.month, date_time.month)
-        self.assertEqual(self.user1.updated_at.day, date_time.day)
-        self.assertEqual(self.user1.updated_at.hour, date_time.hour)
-        self.assertEqual(self.user1.updated_at.minute, date_time.minute)
-        self.assertAlmostEqual(self.user1.updated_at.second,
-                               date_time.second, places=10)
+        i = self.value()
+        i.save()
+        key = self.name + "." + i.id
+        with open('file.json', 'r') as f:
+            j = json.load(f)
+            self.assertEqual(j[key], i.to_dict())
 
     def test_to_dict(self):
         """
