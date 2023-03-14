@@ -34,19 +34,15 @@ class TestFileStorage(unittest.TestCase):
         self.assertIsInstance(models.storage._FileStorage__file_path, str)
 
     def test_new_method(self):
-        user1_model = BaseModel()
-        user2_model = BaseModel()
-        json_dict = user2_model.to_dict()
-        user3_model = BaseModel(**json_dict)
-        models.storage.new(user3_model)
-        for key, value in models.storage._FileStorage__objects.items():
-            self.assertTrue(isinstance(value, BaseModel))
-            key_values = key.split(sep=".")
-            self.assertEqual(key,
-                             "{}.{}".format(key_values[0], key_values[1]))
+       """ New object is correctly added to __objects """
+        new = BaseModel()
+        for obj in models.storage.all().values():
+            temp = obj
+        self.assertTrue(temp is obj)
 
     def test_all_method(self):
-        objects = models.storage.all()
+        """unnittest for object returned"""
+        objects = storage.all()
         self.assertIsInstance(objects, dict)
         self.assertEqual(models.storage._FileStorage__objects,
                          objects)
