@@ -125,6 +125,12 @@ class HBNBCommand(cmd.Cmd):
                 print("** instance id missing **")
                 return
             try:
+                if args[1]:
+                    pass
+            except IndexError:
+                print("** instance id missing **")
+                return
+            try:
                 if args[2]:
                     pass
             except IndexError:
