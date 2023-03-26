@@ -23,14 +23,14 @@ button:hover {
   opacity: 90%;
 }
 
-.container .locations {
+.container .filters .locations {
   display: inline-block;
   vertical-align: middle;
 
   height: 100%;
   width: 25%;
 
-  margin-left: 30px;
+  padding-left: 30px;
   border-right: 1px solid #DDDDDD;
 }
 
@@ -41,7 +41,7 @@ button:hover {
   height: 100%;
   width: 25%;
 
-  margin-left: 30px;
+  padding-left: 30px;
 }
 
 .container .filters .popover {
@@ -56,7 +56,6 @@ button:hover {
 
   border: 1px solid #DDDDDD;
   border-radius: 4px;
-
 }
 
 .locations:hover .popover{
